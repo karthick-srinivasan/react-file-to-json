@@ -12,8 +12,8 @@ const FileUpload: React.FC = () => {
     }
   };
 
-  const handleClick = () => {
-    const data = excelToJson(file);
+  const handleClick = async () => {
+    const data = await excelToJson(file);
 
     console.log(data);
   };
