@@ -12,7 +12,7 @@ const FileUpload: React.FC = () => {
     }
   };
 
-  const handleClick = async () => {
+  const handleParse = async () => {
     const data = await excelToJson(file);
 
     console.log(data);
@@ -22,7 +22,7 @@ const FileUpload: React.FC = () => {
     <div>
       Upload file:
       <input type="file" onChange={handleChange} />
-      <button type="submit" onClick={handleClick}>
+      <button type="submit" onClick={handleParse}>
         Parse
       </button>
     </div>
