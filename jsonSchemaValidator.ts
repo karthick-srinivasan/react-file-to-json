@@ -1,20 +1,7 @@
 import Ajv from 'ajv';
 
-const ajv = new Ajv();
+export const validateJsonSchema = (schema) => {
+  const ajv = new Ajv({ allErrors: true });
 
-const schema = {
-  type: 'array',
-  items: [
-    {
-      type: 'object',
-      properties: {
-        id: { type: 'integer' },
-        name: { type: 'string' },
-      },
-      required: ['id', 'name'],
-      additionalProperties: false,
-    },
-  ],
+  return ajv.compile(schema);
 };
-
-export const validate = ajv.compile(schema);
