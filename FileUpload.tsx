@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { excelToJson } from './excelToJson';
+import { validate } from './jsonSchemaValidator';
 
 const FileUpload: React.FC = () => {
   const [file, setFile] = useState<File>();
@@ -16,6 +17,9 @@ const FileUpload: React.FC = () => {
     const data = await excelToJson(file);
 
     console.log(data);
+
+    const valid = validate(data);
+    if (!valid) console.log(validate.errors);
   };
 
   return (
